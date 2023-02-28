@@ -51,7 +51,9 @@ namespace SpecFlowProject1.StepDefinitions
         [When(@"the two numbers are divided")]
         public void WhenTheTwoNumbersAreDivided()
         {
-            throw new PendingStepException();
+            Calculator c = new Calculator();
+            int res = c.Divide(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
+            _sc.Add("result", res);
         }
 
 
