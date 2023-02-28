@@ -27,18 +27,45 @@ namespace SpecFlowProject1.StepDefinitions
         [When("the two numbers are added")]
         public void WhenTheTwoNumbersAreAdded()
         {
-            int x = _sc.Get<int>("firstNumber");
-            int y = _sc.Get<int>("secondNumber");
-            int solution = x + y;
-            _sc.Add("solution", solution);
+            Calculator c = new Calculator();
+            int res = c.AddTwoIntegers(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
+            _sc.Add("result", res);
         }
+
+        [When(@"the two numbers are subtracted")]
+        public void WhenTheTwoNumbersAreSubtracted()
+        {
+            Calculator c = new Calculator();
+            int res = c.Subtract(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
+            _sc.Add("result", res);
+        }
+
+        [When(@"the two numbers are multiplied")]
+        public void WhenTheTwoNumbersAreMultiplied()
+        {
+            Calculator c = new Calculator();
+            int res = c.Multiplied(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
+            _sc.Add("result", res);
+        }
+
+        [When(@"the two numbers are divided")]
+        public void WhenTheTwoNumbersAreDivided()
+        {
+            throw new PendingStepException();
+        }
+
 
         [Then("the result should be (.*)")]
         public void ThenTheResultShouldBe(int result)
         {
-            Calculator c = new Calculator();
-            int res = c.AddTwoIntegers(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
-            _sc.Add("result", res);
+            if (_sc.Get<int>("result") == result)
+            {
+                
+            }
+            else 
+            { 
+                throw new ArgumentOutOfRangeException();
+            }
         }
     }
 }
