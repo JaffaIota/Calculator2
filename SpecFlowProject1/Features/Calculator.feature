@@ -43,7 +43,19 @@ Scenario: Multiply pos and neg numbers
     Then the result should be -7500
 
 Scenario: Divide 100 by 4
-    Given the first number is 100
+  Given the first number is 100
   And the second number is 4
-    When the two numbers are divided
+  When the two numbers are divided
   Then the result should be 25
+
+Scenario: Divide by 0
+  Given the first real number is 100
+  And the second real number is 0
+  When the two real numbers are divided
+  Then the real result should be exception
+
+Scenario: Multiply two massive numbers
+	Given the first real number is 2000000000
+	And the second real number is 2
+	When the two real numbers are multiplied
+	Then the real result should be exception

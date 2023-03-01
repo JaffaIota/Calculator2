@@ -8,19 +8,19 @@
             return c;
         }
 
-        public int Subtract(int a, int b)
+        public int SubTwoIntegers(int a, int b)
         {
             int c = a - b;
             return c;
         }
 
-        public int Multiplied(int a, int b)
+        public int MultTwoIntegers(int a, int b)
         {
             int c = a * b;
             return c;
         }
 
-        public int Divide(int a, int b)
+        public int DivTwoIntegers(int a, int b)
         {
             int c = a / b;
             return c;

@@ -56,11 +56,41 @@ namespace SpecFlowProject1.StepDefinitions
             _sc.Add("result", res);
         }
 
-        //There was a better way
         [Then("the result should be (.*)")]
         public void ThenTheResultShouldBe(int result)
         {
             _sc.Get<int>("result").Should().Be(result);
+        }
+
+        [Given(@"the first real number is (.*)")]
+        public void GivenTheFirstRealNumberIs(int p0)
+        {
+            throw new PendingStepException();
+        }
+
+        [Given(@"the second real number is (.*)")]
+        public void GivenTheSecondRealNumberIs(int p0)
+        {
+            throw new PendingStepException();
+        }
+
+        [When(@"the two real numbers are divided")]
+        public void WhenTheTwoRealNumbersAreDivided()
+        {
+            throw new PendingStepException();
+        }
+
+        [When(@"the two real numbers are multiplied")]
+        public void WhenTheTwoRealNumbersAreMultiplied()
+        {
+            throw new PendingStepException();
+        }
+
+        [Then(@"the real result should be exception")]
+        public void ThenTheRealResultShouldBeException()
+        {
+            //_sc.TryGetValue<double>("result", out double).Should().BeTrue();
+            throw new PendingStepException();
         }
     }
 }
