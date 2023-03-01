@@ -5,7 +5,7 @@ Simple calculator for adding **two** numbers
 Link to a feature: [Calculator](SpecFlowProject1/Features/Calculator.feature)
 ***Further read***: **[Learn more about how to generate Living Documentation](https://docs.specflow.org/projects/specflow-livingdoc/en/latest/LivingDocGenerator/Generating-Documentation.html)**
 
-@mytag
+@AssignmentOneOfCalculator
 Scenario: Add two numbers
 	Given the first number is 50
 	And the second number is 70
@@ -47,6 +47,9 @@ Scenario: Divide 100 by 4
   And the second number is 4
   When the two numbers are divided
   Then the result should be 25
+
+@AssignmentTwoOfCalculator
+#[Next step] (Division by zero, multiply out of range of int, Floating point(Multi/Div))
 
 Scenario: Divide by 0
   Given the first real number is 100

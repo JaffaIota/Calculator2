@@ -36,7 +36,7 @@ namespace SpecFlowProject1.StepDefinitions
         public void WhenTheTwoNumbersAreSubtracted()
         {
             Calculator c = new Calculator();
-            int res = c.Subtract(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
+            int res = c.SubTwoIntegers(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
             _sc.Add("result", res);
         }
 
@@ -44,7 +44,7 @@ namespace SpecFlowProject1.StepDefinitions
         public void WhenTheTwoNumbersAreMultiplied()
         {
             Calculator c = new Calculator();
-            int res = c.Multiplied(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
+            int res = c.MultTwoIntegers(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
             _sc.Add("result", res);
         }
 
@@ -52,7 +52,7 @@ namespace SpecFlowProject1.StepDefinitions
         public void WhenTheTwoNumbersAreDivided()
         {
             Calculator c = new Calculator();
-            int res = c.Divide(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
+            int res = c.DivTwoIntegers(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
             _sc.Add("result", res);
         }
 
