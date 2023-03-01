@@ -56,18 +56,11 @@ namespace SpecFlowProject1.StepDefinitions
             _sc.Add("result", res);
         }
 
-
+        //There was a better way
         [Then("the result should be (.*)")]
         public void ThenTheResultShouldBe(int result)
         {
-            if (_sc.Get<int>("result") == result)
-            {
-                
-            }
-            else 
-            { 
-                throw new ArgumentOutOfRangeException();
-            }
+            _sc.Get<int>("result").Should().Be(result);
         }
     }
 }

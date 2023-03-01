@@ -19,11 +19,11 @@
             int c = a * b;
             return c;
         }
+
         public int Divide(int a, int b)
         {
             int c = a / b;
             return c;
         }
-
     }
 }
