@@ -38,13 +38,36 @@ namespace SpecFlowProject1.StepDefinitions
             _sc.Add("secondDouble", number);
         }
 
-        [When(@"the two real numbers are divided")]
-        public void WhenTheTwoRealNumbersAreDivided()
+        [When("the two numbers are added")]
+        public void WhenTheTwoNumbersAreAdded()
         {
             Calculator c = new Calculator();
             try
             {
-                double res = c.DivTwoDoubles(_sc.Get<double>("firstDouble"), _sc.Get<double>("secondDouble"));
+                int res = c.AddTwoIntegers(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
+                _sc.Add("result", res);
+            }
+            catch (Exception ex)
+            {
+                _sc.Add("Error", ex);
+            }
+        }
+
+        [When(@"the two numbers are subtracted")]
+        public void WhenTheTwoNumbersAreSubtracted()
+        {
+            Calculator c = new Calculator();
+            int res = c.SubTwoIntegers(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
+            _sc.Add("result", res);
+        }
+
+        [When(@"the two numbers are divided")]
+        public void WhenTheTwoNumbersAreDivided()
+        {
+            Calculator c = new Calculator();
+            try
+            {
+                int res = c.DivTwoIntegers(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
                 _sc.Add("result", res);
             }
             catch (Exception ex)
@@ -68,6 +91,21 @@ namespace SpecFlowProject1.StepDefinitions
             }
         }
 
+        [When(@"the two real numbers are divided")]
+        public void WhenTheTwoRealNumbersAreDivided()
+        {
+            Calculator c = new Calculator();
+            try
+            {
+                double res = c.DivTwoDoubles(_sc.Get<double>("firstDouble"), _sc.Get<double>("secondDouble"));
+                _sc.Add("result", res);
+            }
+            catch (Exception ex)
+            {
+                _sc.Add("Error", ex);
+            }
+        }
+
         [When(@"the two real numbers are multiplied")]
         public void WhenTheTwoRealNumbersAreMultiplied()
         {
@@ -76,29 +114,6 @@ namespace SpecFlowProject1.StepDefinitions
             _sc.Add("result", res);
         }
 
-        [When("the two numbers are added")]
-        public void WhenTheTwoNumbersAreAdded()
-        {
-            Calculator c = new Calculator();
-            int res = c.AddTwoIntegers(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
-            _sc.Add("result", res);
-        }
-
-        [When(@"the two numbers are subtracted")]
-        public void WhenTheTwoNumbersAreSubtracted()
-        {
-            Calculator c = new Calculator();
-            int res = c.SubTwoIntegers(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
-            _sc.Add("result", res);
-        }
-
-        [When(@"the two numbers are divided")]
-        public void WhenTheTwoNumbersAreDivided()
-        {
-            Calculator c = new Calculator();
-            int res = c.DivTwoIntegers(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
-            _sc.Add("result", res);
-        }
 
         [Then("the result should be (.*)")]
         public void ThenTheResultShouldBe(int result)

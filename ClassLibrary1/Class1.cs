@@ -4,6 +4,7 @@
     {
         public int AddTwoIntegers(int a, int b)
         {
+            if (int.MaxValue - b < a || int.MaxValue - a < b) { throw new System.ArgumentException("Number to large for Int, should use Double"); }
             int c = a + b;
             return c;
         }
@@ -38,6 +39,7 @@
 
         public int DivTwoIntegers(int a, int b)
         {
+            if (b == 0) { throw new System.ArgumentException("Cannot Divide by 0"); }
             int c = a / b;
             return c;
         }

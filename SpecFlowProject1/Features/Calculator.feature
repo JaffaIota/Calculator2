@@ -49,9 +49,15 @@ Scenario: Divide 100 by 4
   Then the result should be 25
 
 @AssignmentTwoOfCalculator
-#[Next step] (Division by zero, multiply out of range of int, Floating point(Multi/Div))
+#[Next step] (Division by zero, multiply out of range of int, Floating point(Multi/Div)) 
 
-Scenario: Divide by 0
+Scenario: Add tow massive numbers
+	Given the first number is 2147483647
+	And the second number is 1
+	When the two numbers are added
+	Then it will throw an exception
+
+Scenario: Divide by 0 double
   Given the first real number is 100
   And the second real number is 0
   When the two real numbers are divided
@@ -68,3 +74,9 @@ Scenario: Multiply two decimals
 	And the second real number is 3.2
 	When the two real numbers are multiplied
 	Then the real result should be close to 20.8
+
+Scenario: Divide by 0 int
+  Given the first number is 100
+  And the second number is 0
+  When the two numbers are divided
+  Then it will throw an exception
