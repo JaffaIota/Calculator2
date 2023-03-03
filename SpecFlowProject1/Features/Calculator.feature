@@ -51,7 +51,7 @@ Scenario: Divide 100 by 4
 @AssignmentTwoOfCalculator
 #[Next step] (Division by zero, multiply out of range of int, Floating point(Multi/Div)) 
 
-Scenario: Add tow massive numbers
+Scenario: Add two massive numbers
 	Given the first number is 2147483647
 	And the second number is 1
 	When the two numbers are added

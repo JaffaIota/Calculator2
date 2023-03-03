@@ -381,14 +381,14 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add tow massive numbers")]
+        [NUnit.Framework.DescriptionAttribute("Add two massive numbers")]
         [NUnit.Framework.CategoryAttribute("AssignmentTwoOfCalculator")]
-        public virtual void AddTowMassiveNumbers()
+        public virtual void AddTwoMassiveNumbers()
         {
             string[] tagsOfScenario = new string[] {
                     "AssignmentTwoOfCalculator"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add tow massive numbers", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two massive numbers", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 54
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
