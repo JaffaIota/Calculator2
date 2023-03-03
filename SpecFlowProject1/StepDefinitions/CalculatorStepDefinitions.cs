@@ -57,8 +57,15 @@ namespace SpecFlowProject1.StepDefinitions
         public void WhenTheTwoNumbersAreMultiplied()
         {
             Calculator c = new Calculator();
-            int res = c.MultTwoIntegers(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
-            _sc.Add("result", res);
+            try
+            {
+                int res = c.MultTwoIntegers(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
+                _sc.Add("result", res);
+            }
+            catch (Exception ex)
+            {
+                _sc.Add("Error", ex);
+            }
         }
 
         [When(@"the two real numbers are multiplied")]
@@ -103,7 +110,7 @@ namespace SpecFlowProject1.StepDefinitions
         public void ThenTheRealResultShouldBeCloseTo(Double result)
         {
             double accuracy = .01;
-            _sc.Get<double>("result").Should().BeInRange(result - accuracy, result + accuracy);
+            _sc.Get<double>("result").Should().BeInRange(result - accuracy, result + accuracy); //could have used .Should.BeApproximately if floats not doubles
         }
 
         [Then(@"it will throw an exception")]

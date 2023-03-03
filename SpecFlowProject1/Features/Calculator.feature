@@ -52,9 +52,9 @@ Scenario: Divide 100 by 4
 #[Next step] (Division by zero, multiply out of range of int, Floating point(Multi/Div))
 
 Scenario: Divide by 0
-  Given the first number is 100
-  And the second number is 0
-  When the two numbers are divided
+  Given the first real number is 100
+  And the second real number is 0
+  When the two real numbers are divided
   Then it will throw an exception
 
 Scenario: Multiply two massive numbers
