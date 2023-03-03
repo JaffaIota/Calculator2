@@ -42,17 +42,15 @@ namespace SpecFlowProject1.StepDefinitions
         public void WhenTheTwoRealNumbersAreDivided()
         {
             Calculator c = new Calculator();
-            double res = 0;
             try
             {
-                res = c.DivTwoDoubles(_sc.Get<double>("firstDouble"), _sc.Get<double>("secondDouble"));
-                
+                double res = c.DivTwoDoubles(_sc.Get<double>("firstDouble"), _sc.Get<double>("secondDouble"));
+                _sc.Add("result", res);
             }
             catch (Exception ex)
             {
                 _sc.Add("Error", ex);
             }
-            _sc.Add("result", res);
         }
 
         [When(@"the two numbers are multiplied")]
