@@ -22,7 +22,19 @@
 
         public int DivTwoIntegers(int a, int b)
         {
+            if (b == 0) { throw new System.ArgumentException("Cannot Divide by 0"); }
             int c = a / b;
+            return c;
+        }
+
+        public double MultTwoDoubles(double a, double b)
+        {
+            double c = a * b;
+            return c;
+        }
+        public double DivTwoDoubles(double a, double b)
+        {
+            double c = a / b;
             return c;
         }
     }

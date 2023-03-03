@@ -52,13 +52,19 @@ Scenario: Divide 100 by 4
 #[Next step] (Division by zero, multiply out of range of int, Floating point(Multi/Div))
 
 Scenario: Divide by 0
-  Given the first real number is 100
-  And the second real number is 0
-  When the two real numbers are divided
-  Then the real result should be exception
+  Given the first number is 100
+  And the second number is 0
+  When the two numbers are divided
+  Then it will throw an exception
 
 Scenario: Multiply two massive numbers
-	Given the first real number is 2000000000
-	And the second real number is 2
+	Given the first number is 1000000000
+	And the second number is 3
+	When the two numbers are multiplied
+	Then it will throw an exception
+
+Scenario: Multiply two decimals
+	Given the first real number is 6.5
+	And the second real number is 3.2
 	When the two real numbers are multiplied
-	Then the real result should be exception
+	Then the real result should be close to 20.8

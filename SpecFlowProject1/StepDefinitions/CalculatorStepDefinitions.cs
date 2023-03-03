@@ -1,4 +1,6 @@
 using ClassLibrary1;
+using NUnit.Framework;
+using TechTalk.SpecFlow.CommonModels;
 
 namespace SpecFlowProject1.StepDefinitions
 {
@@ -7,7 +9,7 @@ namespace SpecFlowProject1.StepDefinitions
     {
         // For additional details on SpecFlow step definitions see https://go.specflow.org/doc-stepdef
         private ScenarioContext _sc;
-           
+
         public CalculatorStepDefinitions(ScenarioContext scenario) {
             _sc = scenario;
         }
@@ -22,6 +24,51 @@ namespace SpecFlowProject1.StepDefinitions
         public void GivenTheSecondNumberIs(int number)
         {
             _sc.Add("secondNumber", number);
+        }
+
+        [Given(@"the first real number is (.*)")]
+        public void GivenTheFirstRealNumberIs(double number)
+        {
+            _sc.Add("firstDouble", number);
+        }
+
+        [Given(@"the second real number is (.*)")]
+        public void GivenTheSecondRealNumberIs(double number)
+        {
+            _sc.Add("secondDouble", number);
+        }
+
+        [When(@"the two real numbers are divided")]
+        public void WhenTheTwoRealNumbersAreDivided()
+        {
+            Calculator c = new Calculator();
+            double res = 0;
+            try
+            {
+                res = c.DivTwoDoubles(_sc.Get<double>("firstDouble"), _sc.Get<double>("secondDouble"));
+                
+            }
+            catch (Exception ex)
+            {
+                _sc.Add("Error", ex);
+            }
+            _sc.Add("result", res);
+        }
+
+        [When(@"the two numbers are multiplied")]
+        public void WhenTheTwoNumbersAreMultiplied()
+        {
+            Calculator c = new Calculator();
+            int res = c.MultTwoIntegers(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
+            _sc.Add("result", res);
+        }
+
+        [When(@"the two real numbers are multiplied")]
+        public void WhenTheTwoRealNumbersAreMultiplied()
+        {
+            Calculator c = new Calculator();
+            double res = c.MultTwoDoubles(_sc.Get<double>("firstDouble"), _sc.Get<double>("secondDouble"));
+            _sc.Add("result", res);
         }
 
         [When("the two numbers are added")]
@@ -40,14 +87,6 @@ namespace SpecFlowProject1.StepDefinitions
             _sc.Add("result", res);
         }
 
-        [When(@"the two numbers are multiplied")]
-        public void WhenTheTwoNumbersAreMultiplied()
-        {
-            Calculator c = new Calculator();
-            int res = c.MultTwoIntegers(_sc.Get<int>("firstNumber"), _sc.Get<int>("secondNumber"));
-            _sc.Add("result", res);
-        }
-
         [When(@"the two numbers are divided")]
         public void WhenTheTwoNumbersAreDivided()
         {
@@ -62,35 +101,19 @@ namespace SpecFlowProject1.StepDefinitions
             _sc.Get<int>("result").Should().Be(result);
         }
 
-        [Given(@"the first real number is (.*)")]
-        public void GivenTheFirstRealNumberIs(int p0)
+        [Then(@"the real result should be close to (.*)")]
+        public void ThenTheRealResultShouldBeCloseTo(Double result)
         {
-            throw new PendingStepException();
+            double accuracy = .01;
+            _sc.Get<double>("result").Should().BeInRange(result - accuracy, result + accuracy);
         }
 
-        [Given(@"the second real number is (.*)")]
-        public void GivenTheSecondRealNumberIs(int p0)
+        [Then(@"it will throw an exception")]
+        public void ThenItWillThrowAnException()
         {
-            throw new PendingStepException();
+
+            Assert.IsNotNull(_sc.Get<Exception>("Error"));
         }
 
-        [When(@"the two real numbers are divided")]
-        public void WhenTheTwoRealNumbersAreDivided()
-        {
-            throw new PendingStepException();
-        }
-
-        [When(@"the two real numbers are multiplied")]
-        public void WhenTheTwoRealNumbersAreMultiplied()
-        {
-            throw new PendingStepException();
-        }
-
-        [Then(@"the real result should be exception")]
-        public void ThenTheRealResultShouldBeException()
-        {
-            //_sc.TryGetValue<double>("result", out double).Should().BeTrue();
-            throw new PendingStepException();
-        }
     }
 }
